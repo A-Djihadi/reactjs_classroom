@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import Axios from "axios";
 import LoadingSpinner from "../pokemon/loading.gif";
 
@@ -8,7 +8,7 @@ const TYPE_COLORS = {
   dragon: "755EDF",
   electric: "FCBC17",
   fairy: "F4B1F4",
-  fighting: "823551D",
+  fighting: "823551",
   fire: "E73B0C",
   flying: "A3B3F7",
   ghost: "6060B2",
@@ -24,7 +24,9 @@ const TYPE_COLORS = {
 };
 
 export default class Pokemon extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
     name: "",
     pokemonIndex: "",
     imageUrl: "",
@@ -51,10 +53,10 @@ export default class Pokemon extends Component {
     hatchSteps: "",
     themeColor: "#EF5350",
     cardLoading: true,
-  };
+  };}
 
   async componentDidMount() {
-    const { pokemonIndex } = this.props.match.params;
+    const { pokemonIndex } = this.props;
 
     // Urls for pokemon information
     const pokemonUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonIndex}/`;

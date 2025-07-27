@@ -10,6 +10,12 @@ const Sprite = styled.img`
 `;
 
 const Card = styled.div`
+  background-color: #fff;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  margin: 1em;
+  padding: 1em;
   opacity: 0.95;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -36,13 +42,16 @@ const StyledLink = styled(Link)`
 `;
 
 export default class PokemonCard extends Component {
-  state = {
+  constructor(props) {
+    super(props);
+    this.state = {
     name: "",
     imageUrl: "",
     pokemonIndex: "",
     imageLoading: true,
     tooManyRequests: false,
   };
+  }
 
   componentDidMount() {
     const { name, url } = this.props;

@@ -1,16 +1,21 @@
 import React, { Component } from "react";
-import styled from "styled-components";
 
 export default class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      logo: props.src,
+    };
+  }
   render() {
-    const { logo } = this.props;
+    const { logo } = this.state;
+    console.log("NavBar logo:", logo);
     return (
       <nav className="navbar-content">
-        {logo ? (
-        <img src={logo} alt="Logo" className="navbar-logo" />
-        ) : (
-        <span className="navbar-title">Pokedex</span>
-        )}
+        <div className="navbar-header">
+          <img src={logo} alt="Pokedex Logo" className="navbar-logo" href="./" />
+          <a href="./" className="navbar-title">Pokedex</a>
+        </div>
       </nav>
     );
   }
